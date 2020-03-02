@@ -1,11 +1,14 @@
 {
-  "name": "svg",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "svgbuild",
+  "version": "0.2.0",
+  "description": "Chainable SVG builer",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Stefano Butera <stefano.butera@nethnic.com> (https://github.com/lud77)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
 }
