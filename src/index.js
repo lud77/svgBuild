@@ -32,7 +32,8 @@ module.exports = (width, height) => {
             <polygon
                 points="${linearise(points)}"
                 style="${css2str(style)}"
-                />`;
+                />
+        `;
 
         return svg;
     };
