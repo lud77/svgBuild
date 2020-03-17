@@ -1,11 +1,16 @@
 {
   "name": "svgbuild",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Chainable SVG builer",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lud77/svgBuild.git"
+  },
+  "keywords": ["svg", "vector", "graphics", "canvas"],
   "author": "Stefano Butera <stefano.butera@nethnic.com> (https://github.com/lud77)",
   "license": "MIT",
   "devDependencies": {
