@@ -43,29 +43,29 @@ const svgString =
 
 ### polygon
 
-    ```polygon(points[, style[, props]])```
+    `polygon(points[, style[, props]])`
 
 
 ### circle
 
-    ```circle(point, radius[, style[, props]])```
+    `circle(point, radius[, style[, props]])`
 
 
 ### text
 
-    ```text(text, position[, style[, props]])```
+    `text(text, position[, style[, props]])`
 
 
 ### line
 
-    ```line(point1, point2[, style[, props]])```
+    `line(point1, point2[, style[, props]])`
 
 
 ### el (generic element)
 
-    ```el(type[, style[, props[, content]]])```
+    `el(type[, style[, props[, content]]])`
 
 
 ### toString
 
-    ```toString()```
+    `toString()`
