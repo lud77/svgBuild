@@ -1,6 +1,6 @@
 {
   "name": "svgbuild",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Chainable SVG builer",
   "main": "src/index.js",
   "scripts": {
