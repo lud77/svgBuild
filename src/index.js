@@ -1,5 +1,7 @@
 const css2str = (css) => Object.keys(css).map((k) => `${k}:${css[k]};`).join('');
 
+const props2str = (props) => Object.keys(props).map((k) => `${k}="${props[k]}"`).join(' ');
+
 const linearise = (points) => points.map((p) => `${p.x},${p.y}`).join(' ');
 
 module.exports = (width, height) => {
@@ -27,23 +29,25 @@ module.exports = (width, height) => {
         </svg>
     `;
 
-    const polygon = (points, style) => {
+    const polygon = (points, style, props) => {
         output += `
             <polygon
                 points="${linearise(points)}"
                 style="${css2str(style)}"
+                ${props2str(props || {})}
                 />
         `;
 
         return svg;
     };
 
-    const text = (text, position, style) => {
+    const text = (text, position, style, props) => {
         output += `
             <text
                 x="${position.x}"
                 y="${position.y}"
-                style="${css2str(style)}">
+                style="${css2str(style)}"
+                ${props2str(props || {})}>
 
                 ${text}
 
@@ -53,21 +57,62 @@ module.exports = (width, height) => {
         return svg;
     };
 
-    const circle = (point, radius, style) => {
+    const circle = (point, radius, style, props) => {
         output += `
             <circle
                 cx="${point.x}"
                 cy="${point.y}"
                 r="${radius}"
                 style="${css2str(style)}"
+                ${props2str(props || {})}
                 />
         `;
+    };
+
+    const line = (point1, point2, style, props) => {
+        output += `
+            <line
+                x1="${point1.x}"
+                y1="${point1.y}"
+                x2="${point2.x}"
+                y2="${point2.y}"
+                style="${css2str(style)}"
+                ${props2str(props || {})}
+                />
+        `;
+    };
+
+    const elc = (type, style, props, content) => {
+        output += `
+            <${type}
+                style="${css2str(style)}"
+                ${props2str(props || {})}>
+                ${content}
+            </${type}>
+        `;
+    };
+
+    const ele = (type, style, props) => {
+        output += `
+            <${type}
+                style="${css2str(style)}"
+                ${props2str(props || {})}
+                />
+        `;
+    };
+
+    const el = (type, style, props, content) => {
+        content
+            ? elc(type, style, props, content)
+            : ele(type, style, props);
     };
 
     Object.assign(svg, {
         polygon,
         text,
         circle,
+        line,
+        el,
         toString
     });
 
