@@ -82,29 +82,28 @@ module.exports = (width, height) => {
         `;
     };
 
-    const elc = (type, style, props, content) => {
-        return `
-            <${type}
-                style="${css2str(style)}"
-                ${props2str(props || {})}>
-                ${content}
-            </${type}>
-        `;
-    };
+    const elc = (type, style, props, content) => `
+        <${type}
+            style="${css2str(style)}"
+            ${props2str(props || {})}>
+            ${content}
+        </${type}>
+    `;
 
-    const ele = (type, style, props) => {
-        return `
-            <${type}
-                style="${css2str(style)}"
-                ${props2str(props || {})}
-                />
-        `;
-    };
+    const ele = (type, style, props) => `
+        <${type}
+            style="${css2str(style)}"
+            ${props2str(props || {})}
+            />
+    `;
 
-    const el = (type, style, props, content) => {
-        output += content
+    const el = (type, style, props, content) =>
+        content
             ? elc(type, style, props, content)
             : ele(type, style, props);
+
+    const add = (content) => {
+        output += content;
     };
 
     Object.assign(svg, {
@@ -113,6 +112,7 @@ module.exports = (width, height) => {
         circle,
         line,
         el,
+        add,
         toString
     });
 
