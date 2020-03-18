@@ -83,7 +83,7 @@ module.exports = (width, height) => {
     };
 
     const elc = (type, style, props, content) => {
-        output += `
+        return `
             <${type}
                 style="${css2str(style)}"
                 ${props2str(props || {})}>
@@ -93,7 +93,7 @@ module.exports = (width, height) => {
     };
 
     const ele = (type, style, props) => {
-        output += `
+        return `
             <${type}
                 style="${css2str(style)}"
                 ${props2str(props || {})}
@@ -102,7 +102,7 @@ module.exports = (width, height) => {
     };
 
     const el = (type, style, props, content) => {
-        content
+        output += content
             ? elc(type, style, props, content)
             : ele(type, style, props);
     };
