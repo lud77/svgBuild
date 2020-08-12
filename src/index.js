@@ -120,6 +120,7 @@ module.exports = (width, height) => {
 
     Object.assign(svg, {
         polygon,
+        rect,
         text,
         circle,
         line,
