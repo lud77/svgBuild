@@ -41,6 +41,18 @@ module.exports = (width, height) => {
         return svg;
     };
 
+    const rect = (tl, br, style, props) => {
+        polygon([
+            tl,
+            { x: br.x, y: tl.y },
+            br,
+            { x: tl.x, y: br.y },
+            tl
+        ], style, props);
+
+        return svg;
+    };
+
     const text = (text, position, style, props) => {
         output += `
             <text
